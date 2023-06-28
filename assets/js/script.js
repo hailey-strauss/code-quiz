@@ -1,15 +1,15 @@
 var startbtn = document.querySelector("#startbtn");
 var myArray = [
   {
-    question: "What makes you most happy?",
-    choiceA: "music",
-    choiceB: "building",
-    choiceC: "structure",
-    choiceD: "iPhone",
-    correctAnswer: "music",
+    question: "What is the first thing you do when you receive the ball?",
+    choiceA: "Hit the ball",
+    choiceB: "Bump",
+    choiceC: "Look at the ball",
+    choiceD: "nothing",
+    correctAnswer: "Bump",
   },
   {
-    question: "What makes you most happy?",
+    question: "What do the refs say when the ball hits the line?",
     choiceA: "music",
     choiceB: "building",
     choiceC: "structure",
