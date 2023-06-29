@@ -55,7 +55,8 @@ function startquiz() {
 var questions = document.getElementById("question-text");
 var choices = document.getElementById("choices");
 startbtn.addEventListener("click", startquiz);
-var count = 60; = setInterval.count
+var count = 60;
+setInterval.count;
 // To do Items: create a timer option and seperate (function). Need variable to track first question
 // Function to write and retreive from local storage. And complete loop inside of startquiz
 // grab the current question
