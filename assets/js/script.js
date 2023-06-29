@@ -26,20 +26,21 @@ var myArray = [
     correctAnswer: "6",
   },
   {
-    question: "What makes you most happy?",
-    choiceA: "music",
-    choiceB: "building",
-    choiceC: "structure",
-    choiceD: "iPhone",
-    correctAnswer: "music",
+    question: "What is one way to win a point?",
+    choiceA: "Hit the ball over and it touch on the opposite side",
+    choiceB: "Bump it and it goes over and hits outside the line",
+    choiceC: "Touch it and it hits the antenna",
+    choiceD: "None of the above",
+    correctAnswer: "Hit the ball over and it touch on the opposite side",
   },
   {
-    question: "What makes you most happy?",
-    choiceA: "music",
-    choiceB: "building",
-    choiceC: "structure",
-    choiceD: "iPhone",
-    correctAnswer: "music",
+    question:
+      "What happens when the team you're on hits the ball more than 3 times?",
+    choiceA: "Nothing",
+    choiceB: "The other team gets a point",
+    choiceC: "You get a point",
+    choiceD: "Choice A and C",
+    correctAnswer: "The other team gets a point",
   },
 ];
 function startquiz() {
