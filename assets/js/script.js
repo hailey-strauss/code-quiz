@@ -1,60 +1,70 @@
 var startbtn = document.querySelector("#startbtn");
+var timeElement = document.querySelector("#Timer");
+var questions = document.getElementById("question-text");
+var choices = document.getElementById("choices");
+var interval;
 var myArray = [
   {
+    answers: ["Hit the ball", "Bump", "Look at the ball", "nothing"],
     question: "What is the first thing you do when you receive the ball?",
-    choiceA: "Hit the ball",
-    choiceB: "Bump",
-    choiceC: "Look at the ball",
-    choiceD: "nothing",
     correctAnswer: "Bump",
   },
   {
+    answers: ["In", "Out", "Double", "None of the above"],
     question: "What do the refs say when the ball hits the line?",
-    choiceA: "In",
-    choiceB: "Out",
-    choiceC: "Double",
-    choiceD: "None of the above",
     correctAnswer: "In",
   },
   {
+    answers: ["2", "4", "6", "10"],
     question:
       "How many people are required to be on an indoor volleyball court?",
-    choiceA: "2",
-    choiceB: "4",
-    choiceC: "6",
-    choiceD: "10",
     correctAnswer: "6",
   },
   {
+    answers: [
+      "Hit the ball over and it touch on the opposite side",
+      "Bump it and it goes over and hits outside the line",
+      "Touch it and it hits the antenna",
+      "None of the above",
+    ],
     question: "What is one way to win a point?",
-    choiceA: "Hit the ball over and it touch on the opposite side",
-    choiceB: "Bump it and it goes over and hits outside the line",
-    choiceC: "Touch it and it hits the antenna",
-    choiceD: "None of the above",
     correctAnswer: "Hit the ball over and it touch on the opposite side",
   },
   {
+    answers: [
+      "Nothing",
+      "The other team gets a point",
+      "You get a point",
+      "Choice A and C",
+    ],
     question:
       "What happens when the team you're on hits the ball more than 3 times?",
-    choiceA: "Nothing",
-    choiceB: "The other team gets a point",
-    choiceC: "You get a point",
-    choiceD: "Choice A and C",
     correctAnswer: "The other team gets a point",
   },
 ];
 function startquiz() {
+  ClockTick();
+  displayQuestion();
   console.log("Hello");
-  questions.textContent = myArray[0].question;
+  // questions.textContent = myArray[0].question;
   // for (let index = 0; index < 4; index++) {
   //   var choice = document.createElement("button");
   //   choice.textContent = index;
   //   choices.appendChild(choice);
   // }
 }
-var questions = document.getElementById("question-text");
-var choices = document.getElementById("choices");
-startbtn.addEventListener("click", startquiz);
+var questionIndex = 0;
+function displayQuestion() {
+  var currentQuestion = myArray[questionIndex];
+  questions.textContent = currentQuestion.question;
+  console.log(currentQuestion);
+  var options = currentQuestion.answers;
+  for (var index = 0; index < options.length; index++) {
+    var answerbtn = document.createElement("button");
+    answerbtn.textContent = options[index];
+    choices.append(answerbtn);
+  }
+}
 var count = 60;
 setInterval.count;
 // To do Items: create a timer option and seperate (function). Need variable to track first question
@@ -62,5 +72,13 @@ setInterval.count;
 // grab the current question
 // console.log(myArray[0].choiceA); example of how to access each question
 function ClockTick() {
-  setInterval(clockTick, 60);
+  interval = setInterval(function () {
+    count--;
+    timeElement.textContent = count;
+    if (count <= 0) {
+      clearInterval(interval);
+    }
+  }, 1000);
 }
+startbtn.addEventListener("click", startquiz);
+// Make an array for the answers
