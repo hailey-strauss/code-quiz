@@ -53,15 +53,25 @@ function startquiz() {
   //   choices.appendChild(choice);
   // }
 }
+function answerToQuestion(event) {
+  console.log(event.target.textContent);
+  if (myArray[questionIndex].correctAnswer != event.target.textContent) {
+    count -= 10;
+  }
+  questionIndex++;
+  displayQuestion();
+}
 var questionIndex = 0;
 function displayQuestion() {
   var currentQuestion = myArray[questionIndex];
   questions.textContent = currentQuestion.question;
   console.log(currentQuestion);
   var options = currentQuestion.answers;
+  choices.innerHTML = "";
   for (var index = 0; index < options.length; index++) {
     var answerbtn = document.createElement("button");
     answerbtn.textContent = options[index];
+    answerbtn.addEventListener("click", answerToQuestion);
     choices.append(answerbtn);
   }
 }
