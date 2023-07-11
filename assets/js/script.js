@@ -75,7 +75,7 @@ function displayQuestion() {
     choices.append(answerbtn);
   }
 }
-var count = 60;
+var count = 120;
 setInterval.count;
 // To do Items: create a timer option and seperate (function). Need variable to track first question
 // Function to write and retreive from local storage. And complete loop inside of startquiz
