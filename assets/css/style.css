@@ -9,3 +9,9 @@
   margin-left: 40%;
   text-align: center;
 }
+.center {
+  display: block;
+  margin-left: 2cm;
+  margin-right: auto;
+  width: 50%;
+}
