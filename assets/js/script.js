@@ -3,6 +3,7 @@ var timeElement = document.querySelector("#Timer");
 var questions = document.getElementById("question-text");
 var choices = document.getElementById("choices");
 var interval;
+// Questions for Quiz and The Answers
 var myArray = [
   {
     answers: ["Hit the ball", "Bump", "Look at the ball", "nothing"],
@@ -59,7 +60,14 @@ function answerToQuestion(event) {
     count -= 10;
   }
   questionIndex++;
-  displayQuestion();
+  if (questionIndex > myArray.length - 1) {
+    console.log("quiz over");
+    clearInterval(interval);
+    choices.innerHTML = "";
+    questions.innerHTML = "";
+  } else {
+    displayQuestion();
+  }
 }
 var questionIndex = 0;
 function displayQuestion() {
