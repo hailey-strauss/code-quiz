@@ -20,15 +20,21 @@
         class="center"
         style="width: 130px"
       />
-      <button id="startbtn">Start Quiz</button>
+      <button id="start-btn">Start Quiz</button>
     </div>
     <!--Quiz Pages add div tags,-->
     <div class="questions" id="questions">
       <p id="question-text"></p>
       <div id="choices"></div>
     </div>
+    <div id="end-screen" class="hide">
+      <p>Your highscore is<span id="final-score"></span></p>
+      <p>Enter your initials<input id="user-initials" maxlength="3" /></p>
+      <button id="submitbtn">Submit</button>
+    </div>
 
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
-<!-- add highscores and ask user name  -->
+
+<!-- Have high score array for initials and scores -->
