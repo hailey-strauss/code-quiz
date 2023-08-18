@@ -1,7 +1,8 @@
-var startbtn = document.querySelector("#startbtn");
+var startbtn = document.querySelector("#start-btn");
 var timeElement = document.querySelector("#Timer");
 var questions = document.getElementById("question-text");
 var choices = document.getElementById("choices");
+var endScreen = document.getElementById("end-screen");
 var interval;
 // Questions for Quiz and The Answers
 var myArray = [
@@ -43,7 +44,7 @@ var myArray = [
     correctAnswer: "The other team gets a point",
   },
 ];
-function startquiz() {
+function startQuiz() {
   ClockTick();
   displayQuestion();
   console.log("Hello");
@@ -65,6 +66,7 @@ function answerToQuestion(event) {
     clearInterval(interval);
     choices.innerHTML = "";
     questions.innerHTML = "";
+    saveHighscore();
   } else {
     displayQuestion();
   }
@@ -98,5 +100,8 @@ function ClockTick() {
     }
   }, 1000);
 }
-startbtn.addEventListener("click", startquiz);
+function saveHighscore() {
+  endScreen.classList.remove("hide");
+}
+startbtn.addEventListener("click", startQuiz);
 // Make an array for the answers
