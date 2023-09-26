@@ -3,6 +3,8 @@ var timeElement = document.querySelector("#Timer");
 var questions = document.getElementById("question-text");
 var choices = document.getElementById("choices");
 var endScreen = document.getElementById("end-screen");
+var highscoreScreen = document.getElementById("highscore-screen");
+var highscoreList = document.getElementById("highscore-list");
 var interval;
 // Questions for Quiz and The Answers
 var myArray = [
@@ -104,4 +106,50 @@ function saveHighscore() {
   endScreen.classList.remove("hide");
 }
 startbtn.addEventListener("click", startQuiz);
-// Make an array for the answers
+
+function saveHighscore() {
+  var userInitials = document.getElementById("user-initials").value;
+  var userScore = count; // You can use the remaining time as the user's score
+
+  // Retrieve existing highscores from local storage or initialize an empty array
+  var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+
+  // Add the new highscore to the array
+  highscores.push({ initials: userInitials, score: userScore });
+
+  // Sort the highscores in descending order (highest score first)
+  highscores.sort((a, b) => b.score - a.score);
+
+  // Limit the number of highscores to keep (e.g., top 10)
+  highscores = highscores.slice(0, 10);
+
+  // Save the updated highscores back to local storage
+  localStorage.setItem("highscores", JSON.stringify(highscores));
+
+  // Display the highscores
+  displayHighscores();
+}
+
+function displayHighscores() {
+  // Retrieve highscores from local storage
+  var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+
+  // Clear the previous highscores
+  highscoreList.innerHTML = "";
+
+  // Display each highscore as a list item
+  highscores.forEach(function (score, index) {
+    var listItem = document.createElement("li");
+    listItem.textContent = `${index + 1}. ${score.initials}: ${score.score}`;
+    highscoreList.appendChild(listItem);
+  });
+
+  // Show the highscore screen
+  highscoreScreen.classList.remove("hide");
+}
+
+// Event listeners
+document.getElementById("submitbtn").addEventListener("click", saveHighscore);
+document
+  .getElementById("highscores")
+  .addEventListener("click", displayHighscores);
