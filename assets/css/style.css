@@ -18,3 +18,24 @@
 .hide {
   display: none;
 }
+/* Style the answer buttons */
+#choices button {
+  display: block;
+  margin: 10px left; /*Buttons horizontally with some spacing */
+  padding: 10px 20px;
+  background-color: rgb(56, 56, 194); /* Button background color */
+  color: #fff; /* Text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add rounded corners */
+  cursor: pointer;
+}
+
+/* Style the answer buttons on hover */
+#choices button:hover {
+  background-color: red;
+}
+
+/* Style the correct answer button (if needed) */
+#choices button.correct-answer {
+  background-color: #008000; /* Change the background color for correct answers */
+}

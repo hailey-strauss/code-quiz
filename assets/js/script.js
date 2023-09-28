@@ -109,7 +109,7 @@ startbtn.addEventListener("click", startQuiz);
 
 function saveHighscore() {
   var userInitials = document.getElementById("user-initials").value;
-  var userScore = count; // You can use the remaining time as the user's score
+  var userScore = count;
 
   // Retrieve existing highscores from local storage or initialize an empty array
   var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
@@ -150,6 +150,4 @@ function displayHighscores() {
 
 // Event listeners
 document.getElementById("submitbtn").addEventListener("click", saveHighscore);
-document
-  .getElementById("highscores")
-  .addEventListener("click", displayHighscores);
+document.getElementById("highscores").addEventListener("click", displayHighscores);
